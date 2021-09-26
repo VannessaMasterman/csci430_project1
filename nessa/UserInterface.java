@@ -5,11 +5,11 @@ import nessa.util.ConsoleUtil;
 import nessa.process.*;
 import nessa.process.Admin.*;
 import nessa.process.Client.*;
-import java.lang.*;
+//import java.lang.*;
 
 public class UserInterface {
 	
-	private int previousCommand;
+	//private int previousCommand;
 	private Map<String, List<UIProcess>> currentProcesses;
 	private static Map<String, List<UIProcess>> AdminProcesses;
 	private static Map<String, List<UIProcess>> ClientProcesses;
