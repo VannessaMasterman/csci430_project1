@@ -1,6 +1,6 @@
 package nessa.process;
 
-import nessa.process.UIProcess;
+//import nessa.process.UIProcess; turns out import is unecessary
 import nessa.util.ConsoleUtil;
 
 /**

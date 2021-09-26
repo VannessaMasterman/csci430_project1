@@ -1,6 +1,6 @@
 package nessa.util;
 
-import java.lang.*;
+//import java.lang.*;
 
 /**
 	This is a utility class that only has static methods for use with the console. 
