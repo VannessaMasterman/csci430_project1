@@ -2,6 +2,7 @@ package nessa.process.Admin;
 
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
+import warehouseInventory.warehouse.Inventory;
 
 /**
 	This class performs the "Add Product" business process
@@ -21,7 +22,46 @@ public class PAddProduct extends UIProcess {
 	@Override
 	public void process(int clientID){
 		if(clientID != -1) return;
-		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
+
+		System.out.println();
+		System.out.println("--Adding Supplier--");
+		
+		System.out.print("Supplier Name : ");
+		String supplierID = ConsoleUtil.readLine();
+
+		System.out.println();
+		System.out.println("--Adding Product--");
+		
+		System.out.print("Product Name : ");
+		String productID = ConsoleUtil.readLine();
+
+		System.out.println();
+		System.out.println("--Adding Quantity--");
+		
+		System.out.print("Total Quantity : ");
+		String temp = ConsoleUtil.readLine();
+		int quantity = Integer.parseInt(temp);
+
+		System.out.println();
+		System.out.println("--Adding Supplier Price--");
+		
+		System.out.print("Supplier Price : ");
+		temp = ConsoleUtil.readLine();
+		double supplierPrice = Double.parseDouble(temp);
+
+		System.out.println();
+		System.out.println("--Adding Retail Price--");
+		
+		System.out.print("Retail Price : ");
+		temp = ConsoleUtil.readLine();
+		double retailPrice = Double.parseDouble(temp);
+
+		System.out.println("--Adding Product To Inventory--");
+		Inventory.instance().addProduct(productID, supplierID, supplierPrice, retailPrice, quantity);
+
+		System.out.println();
+		System.out.println("--Product Added to Inventory--");
+
 		ConsoleUtil.sleepForSeconds(1.5f);
 	}
 }
