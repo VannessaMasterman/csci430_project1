@@ -1,16 +1,34 @@
 package ethanlo;
 import java.util.Random;
 
-import warehouseInventory.warehouse.Product;
+//import warehouseInventory.warehouse.Product;
 
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 
 public class SupplierCollection {
 	
-	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
-	public ArrayList<Product> suppliertInventory = new ArrayList<Product>();
+	public ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
 	static SupplierCollection singleton;
+
+	private SupplierCollection() {}
+
+	private SupplierCollection(ArrayList<Supplier> supplierList) {
+		this.supplierList = supplierList;
+	}
+
+	public int findSupplierIndex(String name) {
+		int count = supplierList.size();
+
+        for (int i = 0; i < count; i++) {
+            Supplier test = supplierList.get(i);
+            String b = test.getName();
+            if (b.equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+	}
 	
 	public void addSupplier(String name, String phoneNumber, String address) {
 		Random rand = new Random();
@@ -23,21 +41,6 @@ public class SupplierCollection {
 		if(singleton == null)
 			singleton = new SupplierCollection();
 		return singleton;
-	}
-	
-	public void printSupplierList() {
-		int temp = suppliertInventory.size();
-
-		System.out.println("Current Inventory : ");
-
-		for (int i = 0; i < temp; i++)
-		{
-			Product supplierProduct = suppliertInventory.get(i);
-			String productName = supplierProduct.getsupplierID();
-			System.out.println((i+1) + productName);
-		}
-		
-		System.out.println(supplierList);
 	}
 	
 }

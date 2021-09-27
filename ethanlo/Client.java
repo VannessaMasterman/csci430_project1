@@ -1,6 +1,6 @@
 package ethanlo;
-import java.io.*;
-import java.util.*;
+//import java.io.*;
+//import java.util.*;
 
 public class Client {
 	private String name;

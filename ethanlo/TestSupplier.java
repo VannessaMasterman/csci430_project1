@@ -1,7 +1,7 @@
 package ethanlo;
 import java.util.Scanner;
-import java.io.*;
-import java.util.*; 
+//import java.io.*;
+//import java.util.*; 
 
 public class TestSupplier {
 	public static void main(String args[]) {
@@ -32,7 +32,7 @@ public class TestSupplier {
 				scanner.nextLine();
 			}
 			
-			s.printSupplierList();
+			//s.printSupplierList();
 		}
 		else if(input == 'n') {
 			System.out.println("exiting test");
@@ -40,7 +40,7 @@ public class TestSupplier {
 		}
 		else
 			System.out.println("Please answer either y or n.");
-		
+		scanner.close();
 	}
 	
 }

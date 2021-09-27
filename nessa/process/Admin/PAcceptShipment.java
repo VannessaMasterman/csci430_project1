@@ -1,9 +1,9 @@
 package nessa.process.Admin;
 
-import ethanlo.SupplierCollection;
+
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
-import warehouseInventory.warehouse.Inventory;
+import warehouseInventory.warehouse.*;
 
 /**
 	This class performs the "Accept Shipment" business process
@@ -67,7 +67,7 @@ public class PAcceptShipment extends UIProcess {
 				quantityStr = "";
 				double price = 0.0;
 				while(price <= 0.0){
-					System.out.print("Phat is the purchase price per unit? (double) :");
+					System.out.print("What is the purchase price per unit? (double) :");
 					quantityStr = ConsoleUtil.readLine();
 					try{
 						price = Double.parseDouble(quantityStr);

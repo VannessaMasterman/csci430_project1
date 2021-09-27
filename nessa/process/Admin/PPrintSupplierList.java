@@ -1,6 +1,6 @@
 package nessa.process.Admin;
 
-import ethanlo.SupplierCollection;
+//import ethanlo.SupplierCollection;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 
@@ -28,7 +28,7 @@ public class PPrintSupplierList extends UIProcess {
 		System.out.println("--Suppliers--");
 
 		// print out client list
-		SupplierCollection.instance().printSupplierList();
+		//SupplierCollection.instance().printSupplierList();
 
 		// enter to exit
 		System.out.println("Press Enter to close:");

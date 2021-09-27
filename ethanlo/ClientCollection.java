@@ -1,7 +1,7 @@
 package ethanlo;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.Random;
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 
 public class ClientCollection {

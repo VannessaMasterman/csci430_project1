@@ -116,7 +116,7 @@ public class Inventory {
         ProductList listP = warehouseInventory.get(index);
         ArrayList<waitlistClass> wList = listP.waitlistPair;
         int waitingCustomers = wList.size();
-        int temp = 0;
+        //int temp = 0;
 
         if (waitingCustomers == 0) {
             return quantityAdded;
@@ -125,9 +125,9 @@ public class Inventory {
         // The incoming shipment can fill all waitlist requests
         if (quantityAdded >= amountWaitlisted) {
             for (int i = 0; i < waitingCustomers; i++) {
-                waitlistClass w = wList.get(i);
-                int customer = w.getCustomer();
-                int waitlistQuantity = w.getWaitlistQuantity();
+                //waitlistClass w = wList.get(i);
+                //int customer = w.getCustomer();
+                //int waitlistQuantity = w.getWaitlistQuantity();
 
                 // @TODO send customer and order to shopping cart
             }
@@ -141,8 +141,8 @@ public class Inventory {
         // Individual client requests are processed
         for (int i = 0; i <= waitingCustomers; i++) {
             waitlistClass w = wList.get(i);
-            int customer = w.getCustomer();
-            int waitlistQuantity = w.getWaitlistQuantity();
+            //int customer = w.getCustomer();
+            //int waitlistQuantity = w.getWaitlistQuantity();
             int t = w.removeWaitlistQuantity(quantityAdded);
             quantityAdded = t;
 
