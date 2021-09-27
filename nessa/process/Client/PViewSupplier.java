@@ -2,6 +2,7 @@ package nessa.process.Client;
 
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
+import warehouseInventory.warehouse.Inventory;
 
 /**
 	This class performs the "View List of Suppliers" business process
@@ -19,7 +20,12 @@ public class PViewSupplier extends UIProcess {
 	*/
 	@Override
 	public void process(int clientID){
-		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
+		
+		System.out.println("Enter Product ID to see available suppliers : ");
+		String productID = ConsoleUtil.readLine();
+
+		Inventory.instance().printSupplierList(productID);
+
 		ConsoleUtil.sleepForSeconds(1.5f);
 	}
 }
