@@ -2,6 +2,7 @@ package nessa.process.Admin;
 
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
+import warehouseInventory.warehouse.Inventory;
 
 /**
 	This class performs the "Query Inventory" business process
@@ -21,7 +22,15 @@ public class PQueryInventory extends UIProcess {
 	@Override
 	public void process(int clientID){
 		if(clientID != -1) return;
-		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
-		ConsoleUtil.sleepForSeconds(1.5f);
+		System.out.println();
+		// header
+		System.out.println("--Inventory--");
+
+		// print out inventory
+		Inventory.instance().printCompleteInventory(); 
+
+		// enter to exit
+		System.out.println("Press Enter to close:");
+		ConsoleUtil.readLine();
 	}
 }
