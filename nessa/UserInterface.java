@@ -54,6 +54,10 @@ public class UserInterface {
 		addProcessAdmin(new PViewBalances("client", "View Balances", "View the balances on client accounts"));
 		addProcessAdmin(new PAcceptShipment("inventory", "Accept Shipment", "Accept an incoming shipment"));
 		addProcessAdmin(new PQueryInventory("inventory", "Query", "Query the inventory"));
+    
+		addProcessAdmin(new PPrintClientList("debug", "View Client List", "prints out the list of registered clients"));
+		addProcessAdmin(new PPrintSupplierList("debug", "View Supplier List", "prints out the list of registered suppliers"));
+
 	}
 	/**
 		A helper function that adds a UIProcess to the list of client accessible processes
@@ -80,7 +84,7 @@ public class UserInterface {
 	
 	/**
 		A helper function that displays the menu for slecting from the various categories of functions available.
-		@param the currently available processes, a Map with the key being a string of the category name
+		@param processMap the currently available processes, a Map with the key being a string of the category name
 		@returns a List<UIProcess> of the processes in the selected category, or null if none are selected.
 	*/
 	private List<UIProcess> displayMenuSelect(Map<String, List<UIProcess>> processMap){
