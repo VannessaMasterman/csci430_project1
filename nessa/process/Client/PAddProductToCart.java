@@ -19,10 +19,8 @@ public class PAddProductToCart extends UIProcess {
 	*/
 	@Override
 	public void process(int clientID){
-		// Perform a visual process so we know the debug is working
-		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
-		// Wait for 1.5 seconds so the user can see the action performed. If this thread is blocked, the UI will simply wait
-		ConsoleUtil.sleepForSeconds(1.5f);
-		// After the thread sleeps we return to the main running loop which will load up whatever menu the user was previously at
+		System.out.println("This process is not yet implemented. Sorry for the inconvenience.");
+		System.out.println("Press enter to continue");
+		ConsoleUtil.readLine();
 	}
 }

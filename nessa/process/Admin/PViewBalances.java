@@ -21,7 +21,8 @@ public class PViewBalances extends UIProcess {
 	@Override
 	public void process(int clientID){
 		if(clientID != -1) return;
-		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
-		ConsoleUtil.sleepForSeconds(1.5f);
+		System.out.println("This process is not yet implemented. Sorry for the inconvenience.");
+		System.out.println("Press enter to continue");
+		ConsoleUtil.readLine();
 	}
 }
