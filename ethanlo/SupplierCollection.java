@@ -1,7 +1,7 @@
 package ethanlo;
 import java.util.Random;
 
-import warehouseInventory.warehouse.ProductList;
+import warehouseInventory.warehouse.Product;
 
 import java.io.*;
 import java.util.*;
@@ -9,7 +9,7 @@ import java.util.*;
 public class SupplierCollection {
 	
 	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
-	public ArrayList<ProductList> suppliertInventory = new ArrayList<ProductList>();
+	public ArrayList<Product> suppliertInventory = new ArrayList<Product>();
 	static SupplierCollection singleton;
 	
 	public void addSupplier(String name, String phoneNumber, String address) {
@@ -32,8 +32,8 @@ public class SupplierCollection {
 
 		for (int i = 0; i < temp; i++)
 		{
-			ProductList supplierProduct = suppliertInventory.get(i);
-			String productName = supplierProduct.getProductID();
+			Product supplierProduct = suppliertInventory.get(i);
+			String productName = supplierProduct.getsupplierID();
 			System.out.println((i+1) + productName);
 		}
 		

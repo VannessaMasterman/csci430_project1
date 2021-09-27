@@ -22,7 +22,7 @@ public class ProductList {
      */
     public ProductList() {
     }
-
+    
     /**
      * Class constructor for ProductList specifying the number of objects to create.
      */

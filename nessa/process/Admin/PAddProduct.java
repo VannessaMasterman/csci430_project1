@@ -63,7 +63,7 @@ public class PAddProduct extends UIProcess {
 		Inventory.instance().addProduct(productID, supplierID, supplierPrice, retailPrice, quantity);
 
 		// The product is added to the Supplier Product ArrayList
-		Product e = new Product(supplierID,quantity,supplierPrice);
+		Product e = new Product(productID,quantity,supplierPrice);
 		SupplierCollection.instance().suppliertInventory.add(e);
 
 
