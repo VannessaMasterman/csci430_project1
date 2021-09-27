@@ -1,4 +1,4 @@
-package warehouse;
+package warehouseInventory.warehouse;
 
 import java.util.*;
 
