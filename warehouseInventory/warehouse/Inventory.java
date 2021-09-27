@@ -1,4 +1,4 @@
-package warehouse;
+package warehouseInventory.warehouse;
 import java.util.*;
 /**
  * The Inventory class represents a Warehouse using nested ArrayLists of classes

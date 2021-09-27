@@ -1,4 +1,4 @@
-package warehouse;
+package warehouseInventory.warehouse;
 /**
  * The waitlistClass class represents a waitlist using a client ID and quantity
  * of product requested. Each waitlist request is stored under individual

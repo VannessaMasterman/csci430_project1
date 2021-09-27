@@ -1,4 +1,4 @@
-package warehouse;
+package warehouseInventory.warehouse;
 /**
  * The Product class represents a single product in the warehouse inventory.
  * 

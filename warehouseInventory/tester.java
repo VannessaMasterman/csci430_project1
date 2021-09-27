@@ -1,4 +1,7 @@
-import warehouse.Inventory;
+package warehouseInventory;
+
+import warehouseInventory.warehouse.Inventory;
+
 public class tester {
     public static void main(String[] args) {
 
