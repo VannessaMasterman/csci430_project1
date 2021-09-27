@@ -4,7 +4,7 @@ import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 
 /**
-This class performs the "Add Product To Cart" business process\
+This class performs the "Add Product To Cart" business process
 */
 public class PAddProductToCart extends UIProcess {
 	
