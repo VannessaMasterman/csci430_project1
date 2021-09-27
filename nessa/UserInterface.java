@@ -54,9 +54,6 @@ public class UserInterface {
 		addProcessAdmin(new PViewBalances("client", "View Balances", "View the balances on client accounts"));
 		addProcessAdmin(new PAcceptShipment("inventory", "Accept Shipment", "Accept an incoming shipment"));
 		addProcessAdmin(new PQueryInventory("inventory", "Query", "Query the inventory"));
-		
-		addProcessAdmin(new PPrintClientList("debug", "View Client List", "prints out the list of registered clients"));
-		addProcessAdmin(new PPrintSupplierList("debug", "View Supplier List", "prints out the list of registered suppliers"));
 	}
 	/**
 		A helper function that adds a UIProcess to the list of client accessible processes
