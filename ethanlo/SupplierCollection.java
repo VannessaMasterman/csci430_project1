@@ -1,11 +1,15 @@
 package ethanlo;
 import java.util.Random;
+
+import warehouseInventory.warehouse.Product;
+
 import java.io.*;
 import java.util.*;
 
 public class SupplierCollection {
 	
 	ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
+	public ArrayList<Product> suppliertInventory = new ArrayList<Product>();
 	static SupplierCollection singleton;
 	
 	public void addSupplier(String name, String phoneNumber, String address) {

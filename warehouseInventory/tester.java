@@ -1,12 +1,11 @@
 package warehouseInventory;
 
-import warehouseInventory.warehouse.Inventory;
 
 public class tester {
     public static void main(String[] args) {
 
-        Inventory i = Inventory.instance();
-        Inventory b = Inventory.instance();
+        warehouseInventory.warehouse.Inventory i = warehouseInventory.warehouse.Inventory.instance();
+        warehouseInventory.warehouse.Inventory b = warehouseInventory.warehouse.Inventory.instance();
 
         double retailp = 1, supplierp = 0.5;
         int q = 6;

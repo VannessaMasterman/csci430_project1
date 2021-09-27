@@ -57,6 +57,8 @@ public class PAddProduct extends UIProcess {
 		double retailPrice = Double.parseDouble(temp);
 
 		System.out.println("--Adding Product To Inventory--");
+
+		// The product is added to the warehouse inventory under the Supplier ID
 		Inventory.instance().addProduct(productID, supplierID, supplierPrice, retailPrice, quantity);
 
 		System.out.println();
