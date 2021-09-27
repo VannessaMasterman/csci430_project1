@@ -45,7 +45,7 @@ public class PAddSupplier extends UIProcess {
 		// add client
 		SupplierCollection.instance().addSupplier(name, phone, address);
 		// inform user client added
-		System.out.println("Client \"" + name + "\" has been added successfully");
+		System.out.println("Supplier \"" + name + "\" has been added successfully");
 		// wait on message for 0.2 seconds so user can read briefly
 		ConsoleUtil.sleepForSeconds(0.2f);
 	}
