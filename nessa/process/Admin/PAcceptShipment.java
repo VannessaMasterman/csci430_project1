@@ -1,6 +1,6 @@
 package nessa.process.Admin;
 
-
+//import ethanlo.*;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 import warehouseInventory.warehouse.*;
@@ -81,6 +81,9 @@ public class PAcceptShipment extends UIProcess {
 
 				// if the product exists, the retail price isn't modified, at this point we know the product exists so we don't need to gather info we don't plan on using anyway. Make it easier on the admin
 				Inventory.instance().addProduct(productID, supplierID, price, 0.0, qty);
+				/*int index = addProductToSupplierInventory(productID, qty, price, supplierID);
+				Supplier thisSupplier = SupplierCollection.instance().supplierList.get(index);
+				thisSupplier.printProductList();*/
 			}			
 			
 			// ask if user would like to enter another product?
@@ -134,4 +137,43 @@ public class PAcceptShipment extends UIProcess {
 
 		return quantity;
 	}
+
+	/*private int addProductToSupplierInventory(String productID, int quantity, double supplierPrice, String supplierID) {
+		Product e = new Product(productID, quantity, supplierPrice);
+		int index = SupplierCollection.instance().findSupplierIndex(supplierID);
+
+		if (index == -1) {
+			System.out.print("Supplier Phone Number : ");
+			String phone = ConsoleUtil.readLine();
+	
+			System.out.print("Supplier Address : ");
+			String address = ConsoleUtil.readLine();
+
+			SupplierCollection.instance().addSupplier(supplierID, phone, address);
+			int newIndex = SupplierCollection.instance().findSupplierIndex(supplierID);
+			Supplier newSupplier = SupplierCollection.instance().supplierList.get(newIndex);
+			newSupplier.addProductInventory(e);
+			return newIndex;
+		}
+
+		Supplier thisSupplier = SupplierCollection.instance().supplierList.get(index);
+
+		int count = thisSupplier.getProductInventory().size();
+
+		boolean isPresent = false;
+
+		for (int i = 0; i < count; i++) {
+			Product test = thisSupplier.getProductInventory().get(i);
+			String b = test.getsupplierID();
+			if (b.equalsIgnoreCase(supplierID)) {
+				isPresent = true;
+				test.addSupplierQuantity(quantity);
+				return index;
+			} else if ((isPresent == false) && (i == count - 1)) {
+				thisSupplier.addProductInventory(e);
+				return index;
+			}
+		}
+		return 0;
+	}*/
 }

@@ -60,7 +60,7 @@ public class Supplier {
 		" | Phone: " + this.getPhone() + " | Address: " + this.getAddress() + " |\n");
 	}
 
-	public static void printProductList() {
+	public void printProductList() {
 		int temp = productInventory.size();
 
 		System.out.println("Current Inventory : ");

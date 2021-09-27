@@ -3,7 +3,7 @@ package nessa.process.Admin;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 import warehouseInventory.warehouse.*;
-import ethanlo.*;
+//import ethanlo.*;
 
 /**
  * This class performs the "Add Product" business process
@@ -64,26 +64,6 @@ public class PAddProduct extends UIProcess {
 
 		// The product is added to the warehouse inventory under the Supplier ID
 		Inventory.instance().addProduct(productID, supplierID, supplierPrice, retailPrice, quantity);
-
-		// The product is added to the Supplier Product ArrayList
-		Product e = new Product(productID, quantity, supplierPrice);
-		int index = SupplierCollection.instance().findSupplierIndex(supplierID);
-		Supplier thisSupplier = SupplierCollection.instance().supplierList.get(index);
-
-		int count = thisSupplier.getProductInventory().size();
-
-		boolean isPresent = false;
-
-		for (int i = 0; i < count; i++) {
-			Product test = thisSupplier.getProductInventory().get(i);
-			String b = test.getsupplierID();
-			if (b.equalsIgnoreCase(productID)) {
-				isPresent = true;
-				test.addSupplierQuantity(quantity);
-			} else if ((isPresent == false) && (i == count - 1)) {
-				thisSupplier.addProductInventory(e);
-			}
-		}
 
 		System.out.println();
 		System.out.println("--Product Added to Inventory--");

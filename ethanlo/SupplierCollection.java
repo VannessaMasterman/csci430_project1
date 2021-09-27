@@ -19,6 +19,9 @@ public class SupplierCollection {
 
 	public int findSupplierIndex(String name) {
 		int count = supplierList.size();
+		if (count == 0) {
+			return -1;
+		}
 
         for (int i = 0; i < count; i++) {
             Supplier test = supplierList.get(i);
