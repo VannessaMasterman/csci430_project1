@@ -46,7 +46,7 @@ public class Inventory {
      * @param productID string
      * @return int The index of productID in ProductList
      */
-    private int isNewProduct(String productID) {
+    public int isNewProduct(String productID) {
         int count = warehouseInventory.size();
 
         for (int i = 0; i < count; i++) {
