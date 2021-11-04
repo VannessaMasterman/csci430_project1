@@ -45,7 +45,7 @@ public class StateClerk  extends State {
         //	Show list of clients
         processes.add(new PPrintClientList("Client", "Display Clients", "description"));
         //	Show list of clients with outstanding balance.
-        processes.add(new PViewBalances("Client", "Display Client Balances", "description"));
+        processes.add(new PViewBalances("Client", "Display Client Balances", "UNIMPLEMENTED"));
         //	Become a client.
         processes.add(new ProcessCreateEvent(FSMEvent.VIEW_CLIENT, "Client", "View As", "temporarily views as a client"));
         
@@ -54,6 +54,7 @@ public class StateClerk  extends State {
         //	Receive a shipment.
         processes.add(new PAcceptShipment("Inventory", "Accept Shipment", "process an incoming shipment of product"));
         //	Display the waitlist for a product.
+        processes.add(new ProcessLoadTestingInventory());
             // TODO make process for this        
 
     }

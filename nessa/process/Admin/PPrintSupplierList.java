@@ -21,8 +21,7 @@ public class PPrintSupplierList extends UIProcess {
 		Again, this is a placeholder so that the functionality can be tested without needing to call any other module functions
 	*/
 	@Override
-	public void process(int clientID){
-		if(clientID != -1) return;
+	public void process(){
 		System.out.println();
 		// header
 		System.out.println("--Suppliers--");

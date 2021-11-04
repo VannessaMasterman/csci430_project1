@@ -1,14 +1,13 @@
 package nessa.process.Admin;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import display.DisplayManager;
-import fsm.Context;
 import fsm.FSMManager;
 //import ethanlo.*;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 import warehouseInventory.warehouse.*;
 
 /**
@@ -40,11 +39,11 @@ public class PAcceptShipment extends UIProcess {
 		while(running){
 			// display running header
 			d.setHeader("Adding Product(s)");
-			d.displayLargeMessage(new String[]{
+			d.displayLargeMessage(Arrays.asList(new String[]{
 				"-----Products-------------------------------",
 				"Unique = " + uniqueProducts + " | Gross = " + grossProduct,
 				"--------------------------------------------",
-			}, false);
+			}), false);
 			// get product
 			String productID = d.getInputString("Enter the product id: ", true);
 			// get quantity
@@ -69,13 +68,13 @@ public class PAcceptShipment extends UIProcess {
 			}
 			// verify information
 			d.setHeader("Verify Product Info");
-			d.displayLargeMessage(new String[]{
+			d.displayLargeMessage(Arrays.asList(new String[]{
 				"productID = " + productID,
 				"supplierID = " + supplierID,
 				"supplierPrice = $" + supplierPrice,
 				"retailPrice = $" + retailPrice,
 				"quantity = " + quantity
-			}, false);
+			}), false);
 			if(!d.verify("Is this information correct?")) continue;
 			Inventory.instance().addProduct(productID, supplierID, supplierPrice, retailPrice, quantity);
 			
@@ -100,10 +99,10 @@ public class PAcceptShipment extends UIProcess {
 		int i = 0;
 		for(String s : shipment.keySet()){
 			int amnt = shipment.get(s);
-			lines[i] = "s\tX " + amnt;
+			lines[i] = s+"\tX " + amnt;
 			i++;
 		}
-		d.displayLargeMessage(lines, true);
+		d.displayLargeMessage(Arrays.asList(lines), true);
 		
 	}
 

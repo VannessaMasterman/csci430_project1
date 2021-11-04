@@ -1,9 +1,11 @@
 package nessa.process.Admin;
 
+import java.util.Arrays;
+
+import display.DisplayManager;
 import ethanlo.ClientCollection;
-import fsm.Context;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This class performs the "Add Client" business process
@@ -22,33 +24,29 @@ public class PAddClient extends UIProcess {
 	*/
 	@Override
 	public void process(){
-		int clientID = Context.get().clientID;
-		if(clientID != -1) return;
-		System.out.println();
-		System.out.println("--Adding Client--");
-		
-		System.out.print("Client Name : ");
-		String name = ConsoleUtil.readLine();
+		DisplayManager d = FSMManager.display;
+		d.setHeader("Adding Client");
+		d.displayMessage("Please enter the information as correctly as possible", false);
+		String name = d.getInputString("Client Name : ", false);		
+		String phone = d.getInputString("Client Phone Number : ", false);
+		String address = d.getInputString("Client Address : ", false);
 
-		System.out.print("Client Phone Number : ");
-		String phone = ConsoleUtil.readLine();
+		d.displayLargeMessage(Arrays.asList(new String[]{
+			"name = " + name,
+			"phone # = " + phone,
+			"address = " + address
+		}), false);
 
-		System.out.print("Client Address : ");
-		String address = ConsoleUtil.readLine();
-
-		System.out.print("Verify the above information is correct (Y/N) : ");
-		String verify = ConsoleUtil.readLine();
-		if(!verify.toLowerCase().contains("y")){
-			// incorrect info, loop until correct
+ 		if(!d.verify("Verify the above information is correct")){
 			process();
-			return; // don't continue for any recursive call	
+			return;
 		}
-		// verified correct info
-		// add client
+
 		ClientCollection.instance().addClient(name, phone, address);
-		// inform user client added
-		System.out.println("Client \"" + name + "\" has been added successfully");
-		// wait on message for 0.2 seconds so user can read briefly
-		ConsoleUtil.sleepForSeconds(0.2f);
+		d.displayMessage("Client '"+name+"' has been added", false);
+		if(d.verify("Would you like to add another client?")){
+			// recurse to add more clients
+			process();
+		}
 	}
 }

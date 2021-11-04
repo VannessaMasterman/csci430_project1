@@ -10,7 +10,7 @@ public class DisplayConsole extends DisplayManager {
     }
 
     @Override
-    public void displayLargeMessage(String[] lines, boolean holdThread) {
+    public void displayLargeMessage(Iterable<String> lines, boolean holdThread) {
         header();
         for (String s : lines)
             println(s);

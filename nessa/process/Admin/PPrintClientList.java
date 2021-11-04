@@ -1,9 +1,13 @@
 package nessa.process.Admin;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import display.DisplayManager;
+import ethanlo.Client;
 import ethanlo.ClientCollection;
-import fsm.Context;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This is merely a placeholder UIProcess so that menus can be padded out for visual testing
@@ -23,17 +27,15 @@ public class PPrintClientList extends UIProcess {
 	*/
 	@Override
 	public void process(){
-		int clientID = Context.get().clientID;
-		if(clientID != -1) return;
-		System.out.println();
-		// header
-		System.out.println("--Clients--");
+		DisplayManager d = FSMManager.display;
+		d.setHeader("Clients List");
 
-		// print out client list
-		ClientCollection.instance().printClientList();
-
-		// enter to exit
-		System.out.println("Press Enter to close:");
-		ConsoleUtil.readLine();
+		Iterator<Client> itr = ClientCollection.instance().getIterator();
+		ArrayList<String> lines = new ArrayList<String>();
+		while(itr.hasNext()){
+			Client c = itr.next();
+			lines.add(c.toString());
+		}
+		d.displayLargeMessage(lines, true);
 	}
 }

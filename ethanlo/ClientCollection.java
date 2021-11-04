@@ -35,5 +35,9 @@ public class ClientCollection {
 		
 		System.out.println(clientList);
 	}
+
+	public Iterator<Client> getIterator(){
+		return clientList.iterator();
+	}
 	
 }

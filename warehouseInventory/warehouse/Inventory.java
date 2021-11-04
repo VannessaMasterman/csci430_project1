@@ -323,4 +323,8 @@ public class Inventory {
             System.out.println();
         }
     }
+
+    public Iterator<ProductList> getInventoryIterator(){
+        return warehouseInventory.iterator();
+    }
 }

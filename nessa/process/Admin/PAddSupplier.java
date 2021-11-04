@@ -1,11 +1,11 @@
 package nessa.process.Admin;
 
+import java.util.Arrays;
+
 import display.DisplayManager;
 import ethanlo.SupplierCollection;
-import fsm.Context;
 import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This class performs the "Add Supplier" business process
@@ -35,11 +35,11 @@ public class PAddSupplier extends UIProcess {
 		// supplier address
 		String address = d.getInputString("Enter supplier address: ", true);
 		// verify info
-		d.displayLargeMessage(new String[]{
+		d.displayLargeMessage(Arrays.asList(new String[]{
 			"supplierName = " + name ,
 			"supplierPhoneNumber = " + phoneNumber,
 			"supplierAddress = " + address
-		}, false);
+		}), false);
 		if (! d.verify("Is the information correct?")){
 			this.process();
 			return;
