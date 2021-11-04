@@ -3,7 +3,6 @@ package nessa.process.Client;
 import display.DisplayManager;
 import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This class performs the "View Product" business process

@@ -1,5 +1,6 @@
 package nessa.process.Admin;
 
+import java.util.Arrays;
 import java.util.List;
 
 import display.DisplayManager;
@@ -34,6 +35,6 @@ public class PViewSupplierList extends UIProcess {
 		for(int i = 0; i < list.size(); i++){
 			suppliers[i] = list.get(i).toString();
 		}
-		d.displayLargeMessage(suppliers, true);
+		d.displayLargeMessage(Arrays.asList(suppliers), true);
 	}
 }

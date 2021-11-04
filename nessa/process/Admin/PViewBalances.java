@@ -1,8 +1,8 @@
 package nessa.process.Admin;
 
-import fsm.Context;
+import display.DisplayManager;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This class performs the "View Balances" business process
@@ -21,10 +21,8 @@ public class PViewBalances extends UIProcess {
 	*/
 	@Override
 	public void process(){
-		int clientID = Context.get().clientID;
-		if(clientID != -1) return;
-		System.out.println("This process is not yet implemented. Sorry for the inconvenience.");
-		System.out.println("Press enter to continue");
-		ConsoleUtil.readLine();
+		DisplayManager d = FSMManager.display;
+		d.setHeader("Unimplemented");
+		d.displayMessage("Unfortunately this process is not currently implemented. We apologize for any inconvenience", true);
 	}
 }

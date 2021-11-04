@@ -137,6 +137,7 @@ public class ProductList {
      * @return supSize A integer representing a the number of product suppliers
      */
     public int getProductSupSize(int productListIndex) {
+        // TODO : Why is this taking a param???
         int supSize = productInventory.size();
         return supSize;
     }

@@ -9,7 +9,6 @@ import nessa.process.Admin.PAddSupplier;
 import nessa.process.Admin.PViewSupplierList;
 import nessa.process.Client.PViewBySupplier;
 import nessa.process.Client.PViewProduct;
-import nessa.process.Client.PViewSupplier;
 
 public class StateManager extends State {
 

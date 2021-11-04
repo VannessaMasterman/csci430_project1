@@ -1,11 +1,9 @@
 package fsm.states.login;
 
-import fsm.Context;
 import fsm.FSMEvent;
 import fsm.states.State;
 import fsm.states.login.processes.ProcessExitProgram;
 import fsm.states.login.processes.ProcessLoginGeneral;
-import nessa.process.UIProcess;
 
 public class StateLogin extends State {
 

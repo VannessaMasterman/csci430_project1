@@ -34,7 +34,7 @@ public abstract class DisplayManager {
      * Displays a message that spans many lines
      * @param lines the individual lines to display
      */
-    public abstract void displayLargeMessage(String[] lines, boolean holdThread);
+    public abstract void displayLargeMessage(Iterable<String> lines, boolean holdThread);
 
     /**
      * Displays the available options to the user and returns the option the user selected as an index

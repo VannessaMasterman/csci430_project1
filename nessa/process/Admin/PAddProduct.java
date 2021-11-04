@@ -1,10 +1,10 @@
 package nessa.process.Admin;
 
+import java.util.Arrays;
+
 import display.DisplayManager;
-import fsm.Context;
 import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 import warehouseInventory.warehouse.*;
 //import ethanlo.*;
 
@@ -59,13 +59,13 @@ public class PAddProduct extends UIProcess {
 		}
 
 		// display verification
-		d.displayLargeMessage(new String[]{
+		d.displayLargeMessage(Arrays.asList(new String[]{
 			"productID = " + productID,
 			"supplierID = " + supplierID,
 			"supplierPrice = $" + supplierPrice,
 			"retailPrice = $" + retailPrice,
 			"quantity = " + quantity
-		}, false);
+		}), false);
 
 		if (! d.verify("Is this information correct?")) {
 			// recurse until values are correct
