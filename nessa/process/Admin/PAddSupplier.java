@@ -1,6 +1,9 @@
 package nessa.process.Admin;
 
+import display.DisplayManager;
 import ethanlo.SupplierCollection;
+import fsm.Context;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 
@@ -20,33 +23,29 @@ public class PAddSupplier extends UIProcess {
 		@param clientID the ID for the client logged in, else -1
 	*/
 	@Override
-	public void process(int clientID){
-		if(clientID != -1) return;
-		System.out.println();
-		System.out.println("--Adding Supplier--");
-		
-		System.out.print("Supplier Name : ");
-		String name = ConsoleUtil.readLine();
+	public void process(){
+		DisplayManager d = FSMManager.display;
+		d.setHeader("Adding Supplier");
+		d.displayMessage("You will need to provide specific information related to the product you are adding. Please have this information ready", false);
 
-		System.out.print("Supplier Phone Number : ");
-		String phone = ConsoleUtil.readLine();
-
-		System.out.print("Supplier Address : ");
-		String address = ConsoleUtil.readLine();
-
-		System.out.print("Verify the above information is correct (Y/N) : ");
-		String verify = ConsoleUtil.readLine();
-		if(!verify.toLowerCase().contains("y")){
-			// incorrect info, loop until correct
-			process(clientID);
-			return; // don't continue for any recursive call	
+		// supplier name
+		String name = d.getInputString("Enter supplier name: ", true);
+		// supplier phone number
+		String phoneNumber = d.getInputString("Enter supplier phone number: ", true);
+		// supplier address
+		String address = d.getInputString("Enter supplier address: ", true);
+		// verify info
+		d.displayLargeMessage(new String[]{
+			"supplierName = " + name ,
+			"supplierPhoneNumber = " + phoneNumber,
+			"supplierAddress = " + address
+		}, false);
+		if (! d.verify("Is the information correct?")){
+			this.process();
+			return;
 		}
-		// verified correct info
-		// add client
-		SupplierCollection.instance().addSupplier(name, phone, address);
-		// inform user client added
-		System.out.println("Supplier \"" + name + "\" has been added successfully");
-		// wait on message for 0.2 seconds so user can read briefly
-		ConsoleUtil.sleepForSeconds(0.2f);
+		// register supplier
+		SupplierCollection.instance().addSupplier(name, phoneNumber, address);
+
 	}
 }

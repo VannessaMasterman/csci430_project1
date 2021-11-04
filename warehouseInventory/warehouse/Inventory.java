@@ -11,7 +11,7 @@ public class Inventory {
 
     // Variable Declaration
     private static Inventory singleton;
-    private ArrayList<ProductList> warehouseInventory = new ArrayList<ProductList>();
+    public ArrayList<ProductList> warehouseInventory = new ArrayList<ProductList>();
 
     /**
      * Class constructor for Inventory.

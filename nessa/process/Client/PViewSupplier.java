@@ -19,7 +19,7 @@ public class PViewSupplier extends UIProcess {
 		@param clientID the ID for the client logged in, else -1
 	*/
 	@Override
-	public void process(int clientID){
+	public void process(){
 		
 		System.out.println("Enter Product ID to see available suppliers : ");
 		String productID = ConsoleUtil.readLine();

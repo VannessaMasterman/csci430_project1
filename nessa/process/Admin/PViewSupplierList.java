@@ -1,19 +1,22 @@
 package nessa.process.Admin;
 
-import ethanlo.ClientCollection;
-import fsm.Context;
+import java.util.List;
+
+import display.DisplayManager;
+import ethanlo.Supplier;
+import ethanlo.SupplierCollection;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
-import nessa.util.ConsoleUtil;
 
 /**
 	This is merely a placeholder UIProcess so that menus can be padded out for visual testing
 */
-public class PPrintClientList extends UIProcess {
+public class PViewSupplierList extends UIProcess {
 	
 	/**
 		The constructor allows for all fields to be defined at point of creation.
 	*/
-	public PPrintClientList(String category, String name, String description){
+	public PViewSupplierList(String category, String name, String description){
 		super(category, name, description);	
 	}
 	
@@ -23,17 +26,14 @@ public class PPrintClientList extends UIProcess {
 	*/
 	@Override
 	public void process(){
-		int clientID = Context.get().clientID;
-		if(clientID != -1) return;
-		System.out.println();
-		// header
-		System.out.println("--Clients--");
-
+		DisplayManager d = FSMManager.display;
+		d.setHeader("Adding Supplier");
 		// print out client list
-		ClientCollection.instance().printClientList();
-
-		// enter to exit
-		System.out.println("Press Enter to close:");
-		ConsoleUtil.readLine();
+		List<Supplier> list = SupplierCollection.instance().supplierList;
+		String[] suppliers = new String[list.size()];
+		for(int i = 0; i < list.size(); i++){
+			suppliers[i] = list.get(i).toString();
+		}
+		d.displayLargeMessage(suppliers, true);
 	}
 }

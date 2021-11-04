@@ -1,6 +1,7 @@
 package nessa.process.Admin;
 
 import ethanlo.ClientCollection;
+import fsm.Context;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 
@@ -20,7 +21,8 @@ public class PAddClient extends UIProcess {
 		@param clientID the ID for the client logged in, else -1
 	*/
 	@Override
-	public void process(int clientID){
+	public void process(){
+		int clientID = Context.get().clientID;
 		if(clientID != -1) return;
 		System.out.println();
 		System.out.println("--Adding Client--");
@@ -38,7 +40,7 @@ public class PAddClient extends UIProcess {
 		String verify = ConsoleUtil.readLine();
 		if(!verify.toLowerCase().contains("y")){
 			// incorrect info, loop until correct
-			process(clientID);
+			process();
 			return; // don't continue for any recursive call	
 		}
 		// verified correct info

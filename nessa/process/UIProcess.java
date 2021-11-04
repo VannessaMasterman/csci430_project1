@@ -1,5 +1,7 @@
 package nessa.process;
 
+import fsm.FSMEvent;
+
 //import java.io.*;
 
 /**
@@ -31,6 +33,18 @@ public abstract class UIProcess {
 	/**
 		Process is the function called when the process is selected from the menu. It is called on the single thread this program runs on so if something blocks this thread is blocks the entire program. This is intended as a process may need to call for additional information or pause to display some information.
 	*/
-	public abstract void process(int clientID);
+	public abstract void process();
+
+	/**
+	 * @return the event this process produced, often NO_EVENT
+	 */
+	public FSMEvent getEvent(){
+		return FSMEvent.NO_EVENT;
+	}
+
+	@Override
+	public String toString(){
+		return String.join("", new String[]{"[", getCategory(), "] ", getName(), ": ", getDescription()});
+	}
 	
 }

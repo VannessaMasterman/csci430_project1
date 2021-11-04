@@ -20,7 +20,7 @@ public class DummyProcess extends UIProcess {
 		Again, this is a placeholder so that the functionality can be tested without needing to call any other module functions
 	*/
 	@Override
-	public void process(int clientID){
+	public void process(){
 		System.out.println("Performing dummy process " + category + ":" + name.replace(" ", "_"));
 		ConsoleUtil.sleepForSeconds(1.5f);
 	}

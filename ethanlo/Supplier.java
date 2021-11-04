@@ -57,7 +57,7 @@ public class Supplier {
 	@Override
 	public String toString() {
 		return("|id: " + this.getId() + " | Supplier Name: " + this.getName() + 
-		" | Phone: " + this.getPhone() + " | Address: " + this.getAddress() + " |\n");
+		" | Phone: " + this.getPhone() + " | Address: " + this.getAddress() + " |");
 	}
 
 	public void printProductList() {

@@ -1,5 +1,7 @@
 package nessa.process.Client;
 
+import display.DisplayManager;
+import fsm.FSMManager;
 import nessa.process.UIProcess;
 import nessa.util.ConsoleUtil;
 
@@ -18,9 +20,9 @@ public class PViewProduct extends UIProcess {
 		@param clientID the ID for the client logged in, else -1
 	*/
 	@Override
-	public void process(int clientID){
-		System.out.println("This process is not yet implemented. Sorry for the inconvenience.");
-		System.out.println("Press enter to continue");
-		ConsoleUtil.readLine();
+	public void process(){
+		DisplayManager d = FSMManager.display;
+		d.setHeader("View Products");
+		d.displayMessage("This process is not yet implemented. Sorry for the inconvenience.", true);
 	}
 }
