@@ -11,6 +11,7 @@ import warehouseInventory.warehouse.Inventory;
 import warehouseInventory.warehouse.ProductList;
 
 public class Cart {
+	
 /**
  * Nessa's changes:11/5
  * The cart really doesn't need to worry about who is supplying the product. The warehouse is where the client is purchasing from. 
