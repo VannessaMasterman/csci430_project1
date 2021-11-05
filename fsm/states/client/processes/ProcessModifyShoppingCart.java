@@ -33,8 +33,8 @@ public class ProcessModifyShoppingCart extends UIProcess {
         DisplayManager d = FSMManager.display;
         d.setHeader("Cart - " + Context.get().clientID + "\tAdding Items");
         displayCart();
-        String id = d.getInputString("Please enter the product ID to add", false);
-        int quantity = d.getInputInteger("How many would you like to add?");
+        String id = d.getInputString("Please enter the product ID to add ", false);
+        int quantity = d.getInputInteger("How many would you like to add? ");
         Context.get().getCart().addToCart(id, quantity);
         if(d.verify("Would you like to add more items?")) addItems(); // recurse for more
     }
@@ -43,8 +43,8 @@ public class ProcessModifyShoppingCart extends UIProcess {
         DisplayManager d = FSMManager.display;
         d.setHeader("Cart - " + Context.get().clientID + "\tRemoving Items");
         displayCart();
-        String id = d.getInputString("Please enter the product ID to remove", false);
-        int quantity = d.getInputInteger("How many would you like to remove? Entering a larger quantity than is present will remove the item from your cart.");
+        String id = d.getInputString("Please enter the product ID to remove ", false);
+        int quantity = d.getInputInteger("How many would you like to remove?\n(Entering a larger quantity than is present will remove the item from your cart.) ");
         Context.get().getCart().removeFromCart(id, quantity);
         if(d.verify("Would you like to remove more items?")) removeItems(); // recurse for more
     }

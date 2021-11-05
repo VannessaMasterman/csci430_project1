@@ -115,6 +115,9 @@ public class Cart {
 			return unitPrice;
 		}
 
+		public String toString(){
+			return name + " x" + quantity + " : $" + unitPrice; 
+		}
 
 	}
 }
