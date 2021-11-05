@@ -1,3 +1,5 @@
+package jm;
+
 /*---TransactionRecord Class
 Author: Israel Musa--*/
 
@@ -16,7 +18,10 @@ public class transactionRecord{
 
     //clientID
 	public void setVendor(String vendor) {
-		this.clientID = clientID;
+		// what is the purpose here?
+		// no uses found, no tangible results...why does this exist?
+		/**Nessa: I commented this out to remove warnings */
+		//this.clientID = clientID;
 	}
 	public String getClientID() {
 		return clientID;

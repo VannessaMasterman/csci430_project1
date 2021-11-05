@@ -54,7 +54,6 @@ public class StateManager extends State {
         processes.add(new PViewProduct("Inventory", "Display Products for Supplier", "NOT IMPLEMENTED!"));
         // update products and purchase prices for a particular supplier
         processes.add(new ProcessCreateEvent(FSMEvent.NO_EVENT, "Inventory", "Update Products", "NOT IMPLEMENTED!"));
-        // TODO create process for ^
         // become a salesclerk
         processes.add(new ProcessCreateEvent(FSMEvent.VIEW_CLERK, "Views", "View as clerk", "Perform operations as a salesclerk"));
     }
