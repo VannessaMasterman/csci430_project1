@@ -1,8 +1,7 @@
+package jm;
+
 /*---Invoice Class
 Author: Israel Musa--*/
-import java.io.*;
-import java.util.*;
-
 
 public class Invoice{
   private String productName;
@@ -74,5 +73,17 @@ public class Invoice{
     public String getWaitList()
     {
       return waitList;
+    }
+
+
+    public String getPartNumber() {
+      return "???"; // Nessa: what is the part number?
+    }
+    public String getDescription() {
+        return "filler description"; // what are we using description for?
+        // Should we be making an option for a description to be written by users? Then where is it?
+    }
+    public double getInvoiceAmount() {
+        return getUnitPrice() * getQuantity();
     }
 }

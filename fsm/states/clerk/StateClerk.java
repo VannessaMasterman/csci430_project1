@@ -55,7 +55,6 @@ public class StateClerk  extends State {
         processes.add(new PAcceptShipment("Inventory", "Accept Shipment", "process an incoming shipment of product"));
         //	Display the waitlist for a product.
         processes.add(new ProcessLoadTestingInventory());
-            // TODO make process for this        
 
     }
 

@@ -30,7 +30,7 @@ public class ProcessLoadTestingInventory extends UIProcess {
 
     // Product name list from : https://www.listchallenges.com/the-random-things-list
     // It's a list of random items people are likely to own.
-    private final String[] productNames = new String("DVD,Gum,Printer,Nail Polish,Gift Card,Cactus,Rubber Duck,Stapler,Duct Tape,Water Gun,Beanie,Hamper,Camcorder,String Lights,Taxidermy,Engagement Ring,Fidget Cube,Ladle,Stickers,Lawnmower,Toothpick,Keychain,Lantern,Passport,Stamp Markers,Cotton Balls,Curlers,Unicorn,Garage,Knee Socks,Mustache,Shoe Horn,Squirrel Feeding Station,Thermos,Velcro,Tackle Box,Crazy Straw,Curly Shoelace,Hamster Ball,Horse Head Mask,Multi Tool,Nintendo Switch,Pulse Oximeter,Show,Stress Ball,Stuffed Dog,Tent,Trunk,Salt Lamp").split(",");
+    private final String[] productNames = new String("DVD,Gum,Printer,Nail_Polish,Gift_Card,Cactus,Rubber_Duck,Stapler,Duct_Tape,Water_Gun,Beanie,Hamper,Camcorder,String_Lights,Taxidermy,Engagement_Ring,Fidget_Cube,Ladle,Stickers,Lawnmower,Toothpick,Keychain,Lantern,Passport,Stamp_Markers,Cotton_Balls,Curlers,Unicorn,Garage,Knee_Socks,Mustache,Shoe_Horn,Squirrel_Feeding_Station,Thermos,Velcro,Tackle_Box,Crazy_Straw,Curly_Shoelace,Hamster_Ball,Horse_Head_Mask,Multi_Tool,Nintendo_Switch,Pulse_Oximeter,Show,Stress_Ball,Stuffed_Dog,Tent,Trunk,Salt_Lamp").split(",");
 
     private final double minSupplierPrice = 0.1;
     private final double maxSupplierPrice = 100.0;
@@ -53,10 +53,12 @@ public class ProcessLoadTestingInventory extends UIProcess {
         resultLines.add("Added the following items:");
         for (int i = 0; i < amnt; i++){
             // add items
-            String product = (rand.nextBoolean() ? modifiers[rand.nextInt(modifiers.length)] + " " : "" ) + productNames[rand.nextInt(productNames.length)];
+            String product = (rand.nextBoolean() ? modifiers[rand.nextInt(modifiers.length)] + "_" : "" ) + productNames[rand.nextInt(productNames.length)];
             String supplier = supplierNames[rand.nextInt(supplierNames.length)];
             double purchasePrice = rand.nextDouble() * (maxSupplierPrice - minSupplierPrice) + minSupplierPrice;
+            purchasePrice -= purchasePrice % 0.01;
             double retailPrice = rand.nextDouble() * (maxRetailPriceOffset - minRetailPriceOffset) + minRetailPriceOffset + purchasePrice;
+            retailPrice -= retailPrice % 0.01;
             int quantity = rand.nextInt(maxQuantity - minQuantity) + minQuantity;
             Inventory.instance().addProduct(product, supplier, purchasePrice, retailPrice, quantity);
             resultLines.add("\t" + product + " x " + quantity + " || from " + supplier);

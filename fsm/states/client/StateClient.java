@@ -1,6 +1,11 @@
 package fsm.states.client;
 
 import fsm.states.State;
+import fsm.states.client.processes.ProcessClientViewProducts;
+import fsm.states.client.processes.ProcessClientViewWaitlist;
+import fsm.states.client.processes.ProcessDisplayClientDetails;
+import fsm.states.client.processes.ProcessDisplayClientTransactions;
+import fsm.states.client.processes.ProcessModifyShoppingCart;
 import fsm.states.sharedprocesses.ProcessLogout;
 
 public class StateClient  extends State {
@@ -26,7 +31,18 @@ public class StateClient  extends State {
 
     @Override
     public void addProcesses() {
+        // logout
         processes.add(new ProcessLogout());
+        // see client details
+        processes.add(new ProcessDisplayClientDetails());
+        // show list of products with sales prices
+        processes.add(new ProcessClientViewProducts());
+        // show client transactions
+        processes.add(new ProcessDisplayClientTransactions());
+        // modify shopping cart (add, remove, change quantity)
+        processes.add(new ProcessModifyShoppingCart());
+        // display waitlist
+        processes.add(new ProcessClientViewWaitlist());
     }
 
 }

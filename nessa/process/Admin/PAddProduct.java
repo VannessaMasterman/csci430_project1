@@ -48,15 +48,20 @@ public class PAddProduct extends UIProcess {
 			supplierID = d.getInputString("Please enter the supplier id: ", false);
 			supplierPrice = d.getInputDouble("Please enter the supplier price: $");
 			retailPrice = d.getInputDouble("Please enter the retail price: $");
-			quantity = d.getInputInteger("Please enter the quantity added (integer): ");
 		}else{
 			// existing product, collect data from Inventory
-			// TODO how to get product info using product index?
-			supplierID = "dummy";
-			supplierPrice = 0.0;
-			retailPrice = 0.0;
-			quantity = 1;
+			ProductList pl = Inventory.instance().warehouseInventory.get(productIndex);
+			Product p = pl.productInventory.get(0);
+			supplierID = p.getsupplierID();
+			if(!d.verify("Is the supplier '"+supplierID+"'?")){
+				supplierID = d.getInputString("Please enter the supplier name:");
+				supplierPrice = d.getInputDouble("Please enter the purchase price: $");
+			}else{
+				supplierPrice = p.getsupplierPrice();
+			}
+			retailPrice = pl.getRetailPrice();
 		}
+		quantity = d.getInputInteger("Please enter the quantity added (integer): ");
 
 		// display verification
 		d.displayLargeMessage(Arrays.asList(new String[]{
