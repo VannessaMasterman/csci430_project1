@@ -10,11 +10,13 @@ import fsm.FSMManager;
 import warehouseInventory.warehouse.Inventory;
 import warehouseInventory.warehouse.ProductList;
 
-public class cart {
+public class Cart {
 /**
- * Nessa's changes:
+ * Nessa's changes:11/5
  * The cart really doesn't need to worry about who is supplying the product. The warehouse is where the client is purchasing from. 
  * The warehouse itself acts like a facade for the supply chain that produces the items and supplies them to the warehouse.
+ * 
+ * I added an inner class to hold product data to help seperate from the external product classes which are highly specialized to the needs of the Inventory
  * 
  * @author Vannessa
  */
@@ -24,7 +26,7 @@ public class cart {
 	double chargeAmount;
 	double tax;
     
-	cart() {
+	public Cart() {
 		this.product = new ArrayList<ProductEntry>();
 		this.totalAmount = 0;
 		this.chargeAmount = 0;
@@ -43,6 +45,8 @@ public class cart {
 	public void showCart() {
 		ListIterator<ProductEntry> iterator = product.listIterator();
 		while(iterator.hasNext()) {
+			// TODO this is really not what we want for this. I'm too tired to port it though so this is going to get left to the individual project submissions
+			// leaving a to do so people using IDEs can find this quickly
 			ProductEntry product1 = iterator.next();
 			System.out.println(product1);
 		}

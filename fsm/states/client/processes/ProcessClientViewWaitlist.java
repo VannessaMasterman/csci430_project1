@@ -12,9 +12,8 @@ public class ProcessClientViewWaitlist extends UIProcess {
 
     @Override
     public void process() {
-        // TODO Auto-generated method stub
         DisplayManager d = FSMManager.display;
-        d.displayMessage("TEMP", true);
+        d.displayMessage("Unfortunately this function is not currently implemented.", true);
         
     }
     

@@ -1,5 +1,6 @@
 package fsm;
 
+import jm.Cart;
 
 /**
  * The Context class for keeping data between state changes.
@@ -22,5 +23,10 @@ public class Context {
 
     public int currentState = 0;
     public int previousState = 0;
-    
+
+    private Cart clientCart;
+    public Cart getCart(){
+        if (clientCart == null) clientCart = new Cart();
+        return clientCart;
+    }
 }
