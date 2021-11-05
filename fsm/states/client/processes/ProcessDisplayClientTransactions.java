@@ -12,7 +12,6 @@ public class ProcessDisplayClientTransactions extends UIProcess {
 
     @Override
     public void process() {
-        // TODO Auto-generated method stub
         DisplayManager d = FSMManager.display;
         d.displayMessage("Unfortunately this process is not currently implemented", true);
     }
